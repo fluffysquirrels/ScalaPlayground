@@ -1,8 +1,12 @@
 package name.alex.sp.coffeeShop
 
-/**
- * Created by alex on 19/05/14.
- */
-class OrderProgress {
+import scala.concurrent.{Promise, Future}
+
+class OrderProgressStaff(val request: OrderRequest) {
+  val allFinishedItems: Promise[Seq[Item]] = Promise()
+  val forCustomer = new OrderProgressCustomer(request, allFinishedItems.future)
+}
+
+class OrderProgressCustomer(val request: OrderRequest, val allFinishedItems: Future[Seq[Item]]) {
 
 }
