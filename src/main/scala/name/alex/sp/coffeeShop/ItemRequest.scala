@@ -1,5 +1,5 @@
 package name.alex.sp.coffeeShop
 
-abstract class ItemRequest
-case class CoffeeRequest() extends ItemRequest
-case class PrePreparedItemRequest() extends ItemRequest
+sealed abstract class ItemRequest
+sealed case class CoffeeRequest(val coffeeType: CoffeeType, val coffeeSize: CoffeeSize) extends ItemRequest
+sealed case class PrePreparedItemRequest() extends ItemRequest
