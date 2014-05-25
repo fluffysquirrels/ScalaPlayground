@@ -3,7 +3,7 @@ package name.alex.sp
 import org.scalatest.{FlatSpec, Matchers}
 import scala.collection.mutable
 
-class ManyWayMerge extends FlatSpec with Matchers{
+class ManyWayMergeTests extends FlatSpec with Matchers{
   mergeExampleTestWithPriorityQueue((Vector()), (Vector()))
   mergeExampleTestWithPriorityQueue(Vector(Vector(1)), Vector(1))
   mergeExampleTestWithPriorityQueue(Vector(Vector(), Vector(1), Vector()), Vector(1))

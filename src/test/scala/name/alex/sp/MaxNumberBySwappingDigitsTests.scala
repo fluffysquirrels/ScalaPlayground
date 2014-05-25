@@ -10,7 +10,7 @@ import org.scalatest.{Matchers, FlatSpec}
 //
 // public static  int[] maximize(int arr[],int swapsAllowed);
 
-class MaxNumberBySwappingDigits extends FlatSpec with Matchers {
+class MaxNumberBySwappingDigitsTests extends FlatSpec with Matchers {
 
   maxSwapsExample(Vector(2,3,5), 0, Vector(2,3,5))
   maxSwapsExample(Vector(2,3,5), 1, Vector(3,2,5))

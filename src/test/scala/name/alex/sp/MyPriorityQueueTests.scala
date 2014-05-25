@@ -1,6 +1,5 @@
 package name.alex.sp
 
-import scala.collection.mutable
 import org.scalatest.{Matchers, FlatSpec}
 import scala.None
 
