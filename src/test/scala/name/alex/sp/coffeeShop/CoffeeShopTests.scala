@@ -16,6 +16,7 @@ class CoffeeShopTests extends FlatSpec with Matchers {
     val complete = progress.allFinishedItems.isCompleted
 
     complete should equal(false)
+    Await.ready (progress.allFinishedItems, Duration(1, SECONDS))
   }
 
   it should "finish with a single CoffeeItem" in {
@@ -28,5 +29,6 @@ class CoffeeShopTests extends FlatSpec with Matchers {
 
   def createBasicCoffeeRequest() = new OrderRequest(Vector(CoffeeRequest(Americano(), Large())))
 
-  def getCoffeeShop(): Shop = new Shop()
+  val coffeeShop = new Shop()
+  def getCoffeeShop(): Shop = coffeeShop
 }
