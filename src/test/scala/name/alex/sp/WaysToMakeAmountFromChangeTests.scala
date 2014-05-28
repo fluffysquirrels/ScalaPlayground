@@ -10,31 +10,7 @@ Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 ce
 pennies (1 cent), write code to calculate the number of ways of representing n cents.
  */
 class WaysToMakeAmountFromChangeTests extends FreeSpec with Matchers {
-  val coinAmounts = Vector(25,10,5,1)
-
-  def getWays(targetAmount: Int, coinAmounts: Vector[Int]): Seq[Map[Int, Int]] = {
-    if(targetAmount < 0) {
-      sys.error(s"Cannot call getWays with negative targetAmount $targetAmount")
-    }
-
-    if(targetAmount == 0) {
-      return Seq(Map())
-    }
-
-    val smallEnoughCoins = coinAmounts.filter { c => c <= targetAmount }
-
-    for(
-      thisCoin <- smallEnoughCoins;
-      remainingAmount = targetAmount - thisCoin;
-      // The set remainingAmountCoins is monotonic decreasing to prevent
-      // double counting 1 + 5 and 5 + 1
-      remainingAmountCoins = coinAmounts.filter {c => c <= thisCoin};
-      remainingAmountWays = getWays(remainingAmount, remainingAmountCoins);
-      remainingAmountWay <- remainingAmountWays
-    ) yield remainingAmountWay.updated(thisCoin, 1 + remainingAmountWay.getOrElse(thisCoin, 0))
-  }
-
-  "With 25s, 10s, 5s, 1s" - {
+  "With 25 cents, 10 cents, 5 cents, 1 cent" - {
 
     example(0, 1)
     example(1, 1)
@@ -68,4 +44,30 @@ class WaysToMakeAmountFromChangeTests extends FreeSpec with Matchers {
       }
     }
   }
+
+  val coinAmounts = Vector(25,10,5,1)
+
+  def getWays(targetAmount: Int, coinAmounts: Vector[Int]): Seq[Map[Int, Int]] = {
+    if(targetAmount < 0) {
+      sys.error(s"Cannot call getWays with negative targetAmount $targetAmount")
+    }
+
+    if(targetAmount == 0) {
+      return Seq(Map())
+    }
+
+    val smallEnoughCoins = coinAmounts.filter { c => c <= targetAmount }
+
+    for(
+      thisCoin <- smallEnoughCoins;
+      remainingAmount = targetAmount - thisCoin;
+      // The set remainingAmountCoins is monotonic decreasing to prevent
+      // double counting 1 + 5 and 5 + 1
+      remainingAmountCoins = coinAmounts.filter {c => c <= thisCoin};
+      remainingAmountWays = getWays(remainingAmount, remainingAmountCoins);
+      remainingAmountWay <- remainingAmountWays
+    ) yield remainingAmountWay.updated(thisCoin, 1 + remainingAmountWay.getOrElse(thisCoin, 0))
+  }
+
+
 }
