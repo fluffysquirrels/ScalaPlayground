@@ -26,11 +26,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.10.2" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scala-lang:scala-reflect:2.10.0" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.10:2.0" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe:config:1.0.0" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.2-M1" level="project" />
+    <orderEntry type="library" name="SBT: com.github.nscala-time:nscala-time_2.10:1.2.0" level="project" />
+    <orderEntry type="library" name="SBT: joda-time:joda-time:2.3" level="project" />
+    <orderEntry type="library" name="SBT: org.joda:joda-convert:1.2" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.10.4" level="project" />
   </component>
 </module>
 
