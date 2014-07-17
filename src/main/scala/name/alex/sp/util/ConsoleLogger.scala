@@ -1,7 +1,7 @@
-package name.alex.sp
+package name.alex.sp.util
 
 import java.text.SimpleDateFormat
-import java.util.{TimeZone, Calendar}
+import java.util.Calendar
 
 class ConsoleLogger(val name: String) {
 

@@ -1,4 +1,4 @@
-package name.alex.sp.topTenMovies.naiveImpl
+package name.alex.sp.topTenMovies.inMemoryImpl
 
 import com.github.nscala_time.time.Imports._
 import name.alex.sp.topTenMovies.publicInterface._
@@ -8,7 +8,7 @@ import scala.collection
 import name.alex.sp.util.ConcurrentCountMap
 import org.joda.time
 
-class NaiveMoviePageViewsService extends MoviePageViewsService {
+class InMemoryMoviePageViewsService extends MoviePageViewsService {
   private sealed case class MoviePageViewInPeriod(movieId: MovieId, periodStart: DateTime)
 
   private val movieCounts = new ConcurrentCountMap[MoviePageViewInPeriod]()
@@ -36,9 +36,13 @@ class NaiveMoviePageViewsService extends MoviePageViewsService {
   }
 
   private def getViewTimePeriodStart(viewTime: DateTime): DateTime = {
-    //viewTime.withTime(viewTime.hourOfDay(), viewTime.minuteOfHour(), secondOfMinute = 0, millisOfSecond = 0)
     viewTime.withZone(time.DateTimeZone.UTC).withTimeAtStartOfDay()
   }
+
+  override def close(): Unit = {
+    // No-op as this is an in-memory service.
+  }
 }
+
 
 

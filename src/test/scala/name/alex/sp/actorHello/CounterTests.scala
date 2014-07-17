@@ -8,8 +8,8 @@ import scala.concurrent.duration.Duration
 import java.util.concurrent.TimeUnit
 import akka.util.Timeout
 import java.lang.Runnable
-import name.alex.sp.FunctionalUtils._
-import name.alex.sp.ConsoleLogger
+import name.alex.sp.util.{ConsoleLogger, FunctionalUtils}
+import FunctionalUtils._
 
 class CounterTests extends FreeSpec with Matchers {
   "Increment counter" in {

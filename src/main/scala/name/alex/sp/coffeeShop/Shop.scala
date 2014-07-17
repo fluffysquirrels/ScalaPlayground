@@ -3,7 +3,7 @@ package name.alex.sp.coffeeShop
 import java.util.concurrent.{ScheduledExecutorService, TimeUnit, Executors}
 import scala.concurrent._
 
-import name.alex.sp.{Counter, ConsoleLogger, FunctionalUtils}
+import name.alex.sp.util.{Counter, ConsoleLogger, FunctionalUtils}
 import FunctionalUtils._
 import java.util.concurrent.atomic.AtomicInteger
 

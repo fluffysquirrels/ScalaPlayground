@@ -2,7 +2,7 @@ package name.alex.sp.coffeeShop
 
 import scala.concurrent.{Promise, Future}
 import java.util.concurrent.atomic.AtomicInteger
-import name.alex.sp.Counter
+import name.alex.sp.util.Counter
 
 class OrderProgressStaff(val request: OrderRequest) {
   val number = OrderProgressStaff.orderCounter.getNextValue()

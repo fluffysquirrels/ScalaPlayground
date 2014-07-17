@@ -1,12 +1,12 @@
 package name.alex.sp.topTenMovies
 
 import org.scalatest.{Matchers, FreeSpec}
-import name.alex.sp.topTenMovies.naiveImpl.NaiveMoviePageViewsService
+import name.alex.sp.topTenMovies.inMemoryImpl.InMemoryMoviePageViewsService
 import org.joda.time.DateTime
 import name.alex.sp.topTenMovies.publicInterface._
 import name.alex.sp.util.Assertions
 
-class SomeTests extends FreeSpec with Matchers with Assertions{
+class InMemoryServiceFunctionalTests extends FreeSpec with Matchers with Assertions{
   private val anyMovieId = MovieId(0)
   private val firstMovieId = MovieId(1)
   private val secondMovieId = MovieId(2)
@@ -81,6 +81,6 @@ class SomeTests extends FreeSpec with Matchers with Assertions{
   }
 
   def getService(): MoviePageViewsService = {
-    new NaiveMoviePageViewsService()
+    new InMemoryMoviePageViewsService()
   }
 }
