@@ -2,8 +2,9 @@ package name.alex.sp.topTenMovies.publicInterface
 
 import com.github.nscala_time.time.Imports._
 
+import scala.concurrent.Future
+
 trait MoviePageViewsService extends AutoCloseable {
-  // TODO: Make these asynchronous and return futures.
-  def countPageView(movieId: MovieId, viewTime: DateTime): Unit
-  def getTopTenMoviesSoFarToday(now: DateTime): IndexedSeq[MovieCount]
+  def countPageView(movieId: MovieId, viewTime: DateTime): Future[Unit]
+  def getTopTenMoviesSoFarToday(now: DateTime): Future[IndexedSeq[MovieCount]]
 }
